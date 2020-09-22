@@ -47,11 +47,25 @@ def use_continue() -> None:
     for i in range(11):
         if i == 5:
             continue
-        print(i)
+        print(i, ",", end="")
+    print("")
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    return []
+    accept = []
+    for i in groups:
+        if (len(i) <= 3 or len(i) > 10):
+            accept.append(False)
+            continue
+        if 25 in i:
+            accept.append(True)
+            continue
+        if (50 in i and max(i) > 70) or (min(i) < 18):
+            accept.append(False)
+            continue
+        accept.append(True)
+        
+    return accept
 
 
 def main() -> None:
